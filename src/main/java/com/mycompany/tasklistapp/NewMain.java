@@ -55,7 +55,7 @@ public class NewMain {
             switch (x) {
                 case 1:
                     System.out.println("Please enter your username or -1 to go back:");
-                    username = scanner.next();
+                    username = scanner.nextLine();
                     if (username.equals("-1")) {
                         System.out.println();
                         continue;
@@ -70,7 +70,7 @@ public class NewMain {
                     break;
                 case 2:
                     System.out.println("Please enter your username or -1 to go back:");
-                    username = scanner.next();
+                    username = scanner.nextLine();
                     if (username.equals("-1")) {
                         System.out.println();
                         continue;
@@ -79,7 +79,7 @@ public class NewMain {
                         continue;
                     }
                     System.out.println("Please enter your password:");
-                    password = scanner.next();
+                    password = scanner.nextLine();
                     loginInfo.put(username, password);
                     break;
                 case 3:
