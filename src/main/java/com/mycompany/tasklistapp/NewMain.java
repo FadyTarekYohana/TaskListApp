@@ -150,8 +150,8 @@ public class NewMain {
                 writer.close();
             } catch (Exception ex) {
             }
-        }else{
-         try {
+        } else {
+            try {
                 Writer writer = Files.newBufferedWriter(Paths.get("tasks.json"));
                 writer.write("");
                 writer.close();
@@ -159,5 +159,4 @@ public class NewMain {
             }
         }
     }
-
 }
