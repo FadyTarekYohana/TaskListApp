@@ -45,6 +45,7 @@ public class NewMain {
                 System.out.println("Welcome to the task list app!\n1- Sign in\n2- Sign up\n3- Exit");
                 try {
                     x = scanner.nextInt();
+                    scanner.nextLine();
                     break;
                 } catch (InputMismatchException e) {
                     System.out.println("Please enter a number from one of the options (1-3)!");
@@ -60,7 +61,6 @@ public class NewMain {
                         System.out.println();
                         continue;
                     }
-                    scanner.nextLine();
                     System.out.println("Please enter your password:");
                     password = scanner.nextLine();
                     if (!loginInfo.containsKey(username) || !loginInfo.containsValue(password)) {
@@ -71,7 +71,6 @@ public class NewMain {
                 case 2:
                     System.out.println("Please enter your username or -1 to go back:");
                     username = scanner.nextLine();
-                    scanner.nextLine();
                     if (username.equals("-1")) {
                         System.out.println();
                         continue;
