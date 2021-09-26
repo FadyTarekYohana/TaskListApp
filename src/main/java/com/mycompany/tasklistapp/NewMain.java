@@ -71,6 +71,7 @@ public class NewMain {
                 case 2:
                     System.out.println("Please enter your username or -1 to go back:");
                     username = scanner.nextLine();
+                    scanner.nextLine();
                     if (username.equals("-1")) {
                         System.out.println();
                         continue;
