@@ -20,7 +20,6 @@ public class NewMain {
         String username, password;
         Scanner scanner = new Scanner(System.in);
         int x = 0;
-
         File f = new File("users.json");
         if (!f.exists()) {
             try {
@@ -29,6 +28,7 @@ public class NewMain {
             } catch (Exception e) {
             }
         }
+
         Gson gson = new Gson();
         Reader reader = Files.newBufferedReader(Paths.get("users.json"));
         Map<String, String> usersJson = gson.fromJson(reader, Map.class);
@@ -74,7 +74,7 @@ public class NewMain {
                     if (username.equals("-1")) {
                         System.out.println();
                         continue;
-                    }else if (loginInfo.containsKey(username)) {
+                    } else if (loginInfo.containsKey(username)) {
                         System.out.println("Username is not available.");
                         continue;
                     }
@@ -106,16 +106,16 @@ public class NewMain {
                 }
             }
 
-            File f2 = new File(username + "tasks.json");
+            File f2 = new File("tasks/" + username + "tasks.json");
             if (!f2.exists()) {
                 try {
-                    File file2 = new File(username + "tasks.json");
+                    File file2 = new File("tasks/" + username + "tasks.json");
                     file2.createNewFile();
                 } catch (Exception e) {
                 }
             }
             gson = new Gson();
-            reader = Files.newBufferedReader(Paths.get(username + "tasks.json"));
+            reader = Files.newBufferedReader(Paths.get("tasks/" + username + "tasks.json"));
             Map<String, Object> tasksJson = gson.fromJson(reader, Map.class);
             reader.close();
             Map<String, Object> items = new HashMap<>();
@@ -232,14 +232,14 @@ public class NewMain {
             }
             if (!items.isEmpty()) {
                 try {
-                    Writer writer = Files.newBufferedWriter(Paths.get(username + "tasks.json"));
+                    Writer writer = Files.newBufferedWriter(Paths.get("tasks/" + username + "tasks.json"));
                     gson.toJson(items, writer);
                     writer.close();
                 } catch (Exception ex) {
                 }
             } else {
                 try {
-                    Writer writer = Files.newBufferedWriter(Paths.get(username + "tasks.json"));
+                    Writer writer = Files.newBufferedWriter(Paths.get("tasks/" + username + "tasks.json"));
                     writer.write("");
                     writer.close();
                 } catch (Exception ex) {
